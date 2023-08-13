@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.prodArray = JSON.parse(localStorage.getItem('objects')!)
+    // 
     // let data:any = localStorage.getItem('objects')
     // this.prodArray=JSON.parse(data)
 
@@ -35,6 +35,7 @@ export class ProductComponent implements OnInit {
     pdescr.value=''
     this.prodArray.unshift(obj)
     localStorage.setItem('objects',JSON.stringify(this.prodArray))
+    this.prodArray = JSON.parse(localStorage.getItem('objects')!)
   }
 
   onAddCatlog(pname:HTMLInputElement,pdescr:HTMLTextAreaElement){
@@ -48,6 +49,7 @@ export class ProductComponent implements OnInit {
     pdescr.value=''
     this.prodArray.unshift(obj)
     localStorage.setItem('objects',JSON.stringify(this.prodArray))
+    this.prodArray = JSON.parse(localStorage.getItem('objects')!)
   }
 
 }
