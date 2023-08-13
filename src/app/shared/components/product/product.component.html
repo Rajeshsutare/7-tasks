@@ -1,0 +1,39 @@
+
+<div class="form-group my-4">
+    <label for="name"><strong>Product Name</strong></label>
+    <input type="text" #prodName class="form-control" >
+    <label for="name"><strong>Product Description</strong></label>
+    <textarea type="text" #prodDescr class="form-control"></textarea>
+</div>
+<div class="text-center my-4">
+    <button class="btn btn-info mr-3"
+    (click)="onAddProduct(prodName,prodDescr)"
+    >Add Product</button>
+    <button class="btn btn-success"
+    (click)="onAddCatlog(prodName,prodDescr)"
+    >Add Catlog</button>
+</div>
+<ng-container *ngFor="let p of prodArray">
+    <div class="card my-3 text-center text-white">
+        <div class="card-header text-uppercase"
+        [ngClass]="
+        {
+            'bg-info':p.pCategory === 'product',
+            'bg-success':p.pCategory === 'catlog'
+
+        }"
+        >
+            <h3><strong>{{p.pName}}</strong></h3>
+        </div>
+        <div class="card-body"
+        [ngClass]="
+        {
+            'bg-secondary':p.pCategory === 'product',
+            'bg-warning':p.pCategory === 'catlog'
+
+        }"
+        >
+            <p>{{p.pDescr}}</p>
+        </div>
+    </div>
+</ng-container>
