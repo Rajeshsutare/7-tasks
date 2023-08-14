@@ -19,9 +19,10 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
-    let data:any = localStorage.getItem('objects')
-    this.objects=JSON.parse(data)
+    let data= localStorage.getItem('objects')
+    if(data != null){
+      this.prodArray=JSON.parse(data)
+    }
 
   }
 
