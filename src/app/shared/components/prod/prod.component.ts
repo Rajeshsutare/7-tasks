@@ -24,7 +24,7 @@ export class ProdComponent implements OnInit {
 
   onAddProduct(pname:HTMLInputElement,pdescr:HTMLTextAreaElement, pcateg:Icategory){
     let obj :Iprod ={
-     
+    
       pName:pname.value,
       pDescr:pdescr.value,
       pCategory:pcateg
