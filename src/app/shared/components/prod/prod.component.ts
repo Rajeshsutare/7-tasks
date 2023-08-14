@@ -24,7 +24,7 @@ export class ProdComponent implements OnInit {
 
   onAddProduct(pname:HTMLInputElement,pdescr:HTMLTextAreaElement, pcateg:Icategory){
     let obj :Iprod ={
-    
+      pId:this.arrayProd.length + 1,
       pName:pname.value,
       pDescr:pdescr.value,
       pCategory:pcateg
@@ -52,9 +52,17 @@ export class ProdComponent implements OnInit {
       })
     }
     this.arrayProd.unshift(obj)
-
       localStorage.setItem('objects',JSON.stringify(this.arrayProd))
 
   }
 
+  onDelete(id:number){
+  console.log(id);
+  for(let i=0; i<this.arrayProd.length; i++){
+    if(this.arrayProd[i].pId === id){
+       let removeProd =  this.arrayProd.splice(i,1)
+    }
+  }
+  localStorage.setItem('objects',JSON.stringify(this.arrayProd))
+  }
 }

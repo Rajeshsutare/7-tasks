@@ -23,7 +23,6 @@ export class ProductComponent implements OnInit {
     if(data != null){
       this.prodArray=JSON.parse(data)
     }
-
   }
 
   onAddProduct(pname:HTMLInputElement,pdescr:HTMLTextAreaElement){

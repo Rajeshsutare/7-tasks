@@ -6,7 +6,7 @@ export interface Iproducts{
 }
 
 export interface Iprod{
-
+    pId:number,
     pName:string,
     pDescr:string,
     pCategory:Icategory
