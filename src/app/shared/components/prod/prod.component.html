@@ -1,0 +1,43 @@
+
+<div class="form-group">
+    <label for="name"><strong>Product Name</strong></label>
+    <input type="text" #productName class="form-control">
+    <label for="name"><strong>Product Description</strong></label>
+    <textarea name="name" #productDescr cols="30" rows="5" class="form-control"></textarea>
+</div>
+<div class="text-center">
+    <button class="btn btn-dark mr-3"
+    (click)="onAddProduct(productName,productDescr,'product')"
+    >Add Product</button>
+    <button class="btn btn-warning"
+    (click)="onAddProduct(productName,productDescr,'catlog')"
+    >Add Catlog</button>
+</div>
+<ng-container *ngIf="arrayProd.length > 0; else noProduct">
+    <div class="card my-4 text-center text-white" *ngFor="let prd of arrayProd">
+        <div class="card-header text-uppercase"
+        [ngClass]="{
+            'bg-info':prd.pCategory === 'product',
+            'bg-primary':prd.pCategory === 'catlog'
+        }"
+        >
+            <h3>{{prd.pName}}</h3>
+        </div>
+        <div class="card-body"
+        [ngClass]="{
+            'bg-dark':prd.pCategory === 'product',
+            'bg-warning':prd.pCategory === 'catlog'
+        }"
+        >
+            <p>{{prd.pDescr}}</p>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #noProduct>
+    <p class="alert alert-info p-3 my-4">
+        No Product Or Catlog Added yet !!!
+    </p>
+</ng-template>
+
+

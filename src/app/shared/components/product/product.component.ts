@@ -15,12 +15,13 @@ export class ProductComponent implements OnInit {
       pCategory:'product'
     }
   ]
+ public objects !:Array<Iproducts>;
   constructor() { }
 
   ngOnInit(): void {
     
-    // let data:any = localStorage.getItem('objects')
-    // this.prodArray=JSON.parse(data)
+    let data:any = localStorage.getItem('objects')
+    this.objects=JSON.parse(data)
 
   }
 
