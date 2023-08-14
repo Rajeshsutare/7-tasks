@@ -30,10 +30,12 @@
         }"
         >
             <p>{{prd.pDescr}}</p>
+            <div class="text-right">
+                <button class="btn btn-danger text-white"
+            (click)="onDelete(prd.pId)"
+            >Delete</button>
+            </div>
         </div>
-        <button class="btn btn-danger text-white"
-        (click)="onDelete(prd.pId)"
-        >Delete</button>
     </div>
 </ng-container>
 

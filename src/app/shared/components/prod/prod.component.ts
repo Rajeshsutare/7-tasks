@@ -58,6 +58,23 @@ export class ProdComponent implements OnInit {
 
   onDelete(id:number){
   console.log(id);
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, Remove it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Removed!',
+        'Your Product has been Removed.',
+        'success'
+      )
+    }
+  })
   for(let i=0; i<this.arrayProd.length; i++){
     if(this.arrayProd[i].pId === id){
        let removeProd =  this.arrayProd.splice(i,1)
